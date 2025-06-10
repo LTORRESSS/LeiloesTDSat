@@ -1,4 +1,3 @@
-import javax.swing.JOptionPane;
 
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -137,29 +136,17 @@ public class listagemVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
-       int linhaSelecionada = listaProdutos.getSelectedRow();
-
-if (linhaSelecionada != -1) {
-    int idProduto = Integer.parseInt(listaProdutos.getValueAt(linhaSelecionada, 0).toString()); // coluna ID
-    ProdutosDAO dao = new ProdutosDAO();
-
-    boolean sucesso = dao.venderProduto(idProduto);
-
-    if (sucesso) {
-        JOptionPane.showMessageDialog(null, "Produto vendido com sucesso!");
-        listarProdutos(); // método que recarrega os dados na JTable
-    } else {
-        JOptionPane.showMessageDialog(null, "Erro ao vender produto.");
-    }
-} else {
-    JOptionPane.showMessageDialog(null, "Selecione um produto para vender.");
-}
-
+        String id = id_produto_venda.getText();
+        
+        ProdutosDAO produtosdao = new ProdutosDAO();
+        
+        //produtosdao.venderProduto(Integer.parseInt(id));
+        listarProdutos();
     }//GEN-LAST:event_btnVenderActionPerformed
 
     private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed
-        TelaVendas vendas = new TelaVendas();
-vendas.setVisible(true);
+        //vendasVIEW vendas = new vendasVIEW(); 
+        //vendas.setVisible(true);
     }//GEN-LAST:event_btnVendasActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
